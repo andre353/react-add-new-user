@@ -17,11 +17,17 @@ const AddUser = (props) => {
 
   const addUserHandler = (event) => {
     event.preventDefault();
+    if (usernameInput.trim().length === 0 || userageInput.length.trim() === 0) {
+      return;
+    }
+    if (+userageInput < 1) { // as initially inputs data are strings
+      return;
+    }
     console.log(usernameInput, userageInput);
     setUsernameInput('');
     setUserageInput('');
   };
-  
+
   return (
     <Card className={classes.input}>
       <form onSubmit={addUserHandler}>
