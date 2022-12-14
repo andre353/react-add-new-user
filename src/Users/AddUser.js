@@ -17,13 +17,13 @@ const AddUser = (props) => {
 
   const addUserHandler = (event) => {
     event.preventDefault();
-    if (usernameInput.trim().length === 0 || userageInput.length.trim() === 0) {
+    if (usernameInput.trim().length === 0 || userageInput.trim().length === 0) {
       return;
     }
     if (+userageInput < 1) { // as initially inputs data are strings
       return;
     }
-    console.log(usernameInput, userageInput);
+    props.onAddUser(usernameInput, userageInput);
     setUsernameInput('');
     setUserageInput('');
   };
